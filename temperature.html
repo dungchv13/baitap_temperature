@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" size="30px" style="border: black solid 2px" id="input"> do C
+<button onclick="tranfer()">tranfer</button>
+<h3 id="show"></h3>
+<script>
+    function Temperature(C){
+        this.c = C;
+        this.ctoF = function (){
+            return this.c * 1.8 + 32;
+        }
+        this.ctoKevin = function (){
+            return this.c + 273.15;
+        }
+    }
+    function tranfer(){
+        let c = document.getElementById("input").value;
+        if (c < -273){
+            alert("hay nhap nhiet do lon hon 273 do C");
+        }else{
+            let temper = new Temperature(c);
+            let f = temper.ctoF();
+            let kevin = temper.ctoKevin();
+            document.getElementById("show").innerHTML= "do f: "+f+"<br>"+"do kevin: "+kevin;
+        }
+    }
+
+</script>
+</body>
+</html>
